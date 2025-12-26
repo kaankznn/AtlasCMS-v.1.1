@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CMS Admin</title>
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+
+<body class="app-body">
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="brand-mark">CMS</div>
+        <div class="brand-text">Admin Dashboard</div>
+      </div>
+      <nav class="nav">
+        <a href="/dashboard/posts" class="nav-link">Posts</a>
+        <a href="/dashboard/users" class="nav-link">Users</a>
+        <a href="/dashboard/posts/create" class="nav-link">New Post</a>
+        <a href="/logout" class="nav-link nav-link--danger">Logout</a>
+      </nav>
+      <div class="sidebar-foot">
+        <p class="muted">CMS v.1.1 - Designed by Kaan</p>
+      </div>
+    </aside>
+
+    <main class="main">
+      <div class="main-inner">
+        <%- body %>
+      </div>
+    </main>
+  </div>
+</body>
+</html>

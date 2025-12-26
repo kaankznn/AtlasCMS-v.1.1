@@ -1,0 +1,33 @@
+<section class="page-head">
+  <div>
+    <p class="eyebrow">Posts</p>
+    <h1 class="page-title">All posts</h1>
+    <p class="muted">A quick list of everything published so far.</p>
+  </div>
+</section>
+
+<section class="table-card">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th class="table-actions">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% if (!posts.length) { %>
+        <tr>
+          <td colspan="2" class="empty">No posts yet.</td>
+        </tr>
+      <% } %>
+      <% posts.forEach(p => { %>
+        <tr>
+          <td><%= p.title %></td>
+          <td class="table-actions">
+            <a href="/dashboard/posts/delete/<%= p.id %>" class="btn btn-danger">Delete</a>
+          </td>
+        </tr>
+      <% }) %>
+    </tbody>
+  </table>
+</section>

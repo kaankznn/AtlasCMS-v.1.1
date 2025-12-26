@@ -1,0 +1,54 @@
+<section class="page-head">
+  <div>
+    <p class="eyebrow">Editor</p>
+    <h1 class="page-title">Edit post</h1>
+    <p class="muted">Refine the story before publishing.</p>
+  </div>
+  <div class="page-actions">
+    <a class="btn btn-ghost" href="/dashboard/posts">Back to dashboard</a>
+  </div>
+</section>
+
+<section class="card form-card">
+  <form action="/dashboard/posts/edit/<%= post.post_id %>" method="POST" class="stack">
+    <div class="field">
+      <label for="title">Title</label>
+      <input id="title" name="title" class="input" value="<%= post.title %>" required>
+    </div>
+
+    <div class="field">
+      <label for="content">Content</label>
+      <textarea id="content" name="content" class="input textarea" rows="8" required><%= post.content %></textarea>
+    </div>
+
+    <div class="field-row">
+      <div class="field">
+        <label for="category_id">Category</label>
+        <select id="category_id" name="category_id" class="input">
+          <% categories.forEach(cat => { %>
+            <option value="<%= cat.category_id %>"
+              <%= post.category_id === cat.category_id ? "selected" : "" %>>
+              <%= cat.category_name %>
+            </option>
+          <% }) %>
+        </select>
+      </div>
+      <div class="field">
+        <label for="status">Status</label>
+        <select id="status" name="status" class="input">
+          <option value="published" <%= post.status === "published" ? "selected" : "" %>>
+            Published
+          </option>
+          <option value="draft" <%= post.status === "draft" ? "selected" : "" %>>
+            Draft
+          </option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-actions">
+      <button class="btn btn-primary" type="submit">Update post</button>
+      <a class="btn btn-ghost" href="/dashboard/posts">Cancel</a>
+    </div>
+  </form>
+</section>

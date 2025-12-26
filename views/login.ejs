@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CMS Admin Login</title>
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body class="login-body">
+  <div class="login-shell">
+    <div class="login-card">
+      <div class="login-brand">CMS Admin</div>
+      <h1 class="login-title">Welcome back</h1>
+      <p class="muted">Sign in to continue managing your content.</p>
+      <% if (formError) { %>
+        <div class="alert"><%= formError %></div>
+      <% } %>
+      <form method="POST" action="/login" class="stack">
+        <div class="field">
+          <label for="username">Username</label>
+          <input id="username" name="username" class="input" placeholder="Your username" required>
+        </div>
+        <div class="field">
+          <label for="password">Password</label>
+          <input id="password" name="password" type="password" class="input" placeholder="Your password" required>
+        </div>
+        <button class="btn btn-primary" type="submit">Login</button>
+      </form>
+    </div>
+  </div>
+</body>
+</html>

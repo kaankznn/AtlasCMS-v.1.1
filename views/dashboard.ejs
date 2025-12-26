@@ -1,0 +1,112 @@
+<section class="page-head">
+  <div>
+    <p class="eyebrow">Dashboard</p>
+    <h1 class="page-title">Posts</h1>
+    <p class="muted">Track, refine, and publish your latest stories.</p>
+  </div>
+  <div class="page-actions">
+    <a class="btn btn-primary" href="/dashboard/posts/create">Create post</a>
+  </div>
+</section>
+
+<section class="card-grid">
+  <div class="stat-card">
+    <p class="stat-label">Total posts</p>
+    <p class="stat-value"><%= stats.total %></p>
+  </div>
+  <div class="stat-card">
+    <p class="stat-label">Published</p>
+    <p class="stat-value"><%= stats.published %></p>
+  </div>
+  <div class="stat-card">
+    <p class="stat-label">Drafts</p>
+    <p class="stat-value"><%= stats.drafts %></p>
+  </div>
+  <div class="stat-card">
+    <p class="stat-label">Categories</p>
+    <p class="stat-value"><%= stats.categories %></p>
+  </div>
+</section>
+
+<section class="card form-card filter-card">
+  <form class="filter-form" method="GET" action="/dashboard/posts">
+    <div class="field">
+      <label for="q">Search</label>
+      <input id="q" name="q" class="input" value="<%= filters.q %>"
+        placeholder="Search titles or content">
+    </div>
+    <div class="field">
+      <label for="category">Category</label>
+      <select id="category" name="category" class="input">
+        <option value="all" <%= filters.category === 'all' ? 'selected' : '' %>>
+          All categories
+        </option>
+        <% categories.forEach(cat => { %>
+          <option value="<%= cat.category_id %>"
+            <%= String(filters.category) === String(cat.category_id) ? 'selected' : '' %>>
+            <%= cat.category_name %>
+          </option>
+        <% }) %>
+      </select>
+    </div>
+    <div class="field">
+      <label for="status">Status</label>
+      <select id="status" name="status" class="input">
+        <option value="all" <%= filters.status === 'all' ? 'selected' : '' %>>
+          All status
+        </option>
+        <option value="published" <%= filters.status === 'published' ? 'selected' : '' %>>
+          Published
+        </option>
+        <option value="draft" <%= filters.status === 'draft' ? 'selected' : '' %>>
+          Draft
+        </option>
+      </select>
+    </div>
+    <div class="filter-actions">
+      <button class="btn btn-primary" type="submit">Apply filters</button>
+      <a class="btn btn-ghost" href="/dashboard/posts">Reset</a>
+    </div>
+  </form>
+</section>
+
+<section class="table-card">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Category</th>
+        <th>Status</th>
+        <th>Created</th>
+        <th class="table-actions">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% if (!posts.length) { %>
+        <tr>
+          <td colspan="5" class="empty">No posts found. Try adjusting your filters.</td>
+        </tr>
+      <% } %>
+      <% posts.forEach(p => { %>
+        <% const statusClass = p.status === "draft" ? "badge--draft" : "badge--published"; %>
+        <tr>
+          <td>
+            <div class="title-cell">
+              <span class="title-text"><%= p.title %></span>
+            </div>
+          </td>
+          <td class="muted"><%= p.category || "—" %></td>
+          <td><span class="badge <%= statusClass %>"><%= p.status %></span></td>
+          <td class="muted">
+            <%= p.created_at ? new Date(p.created_at).toLocaleDateString("en-GB") : "-" %>
+          </td>
+          <td class="table-actions">
+            <a href="/posts/<%= p.post_id %>" class="btn btn-ghost">Show</a>
+            <a href="/dashboard/posts/edit/<%= p.post_id %>" class="btn btn-ghost">Edit</a>
+            <a href="/dashboard/posts/delete/<%= p.post_id %>" class="btn btn-danger">Delete</a>
+          </td>
+        </tr>
+      <% }) %>
+    </tbody>
+  </table>
+</section>

@@ -31,7 +31,7 @@ Bu projede aşağıdaki gereksinimler eksiksiz şekilde sağlanmıştır:
 ## 🛠️ Kullanılan Teknolojiler
 
 - **Node.js**
-- **MySQL (XAMPP üzerinden)**
+- **MySQL (XAMPP)**
 - **phpMyAdmin**
 - **mysql2 / promise**
 - **bcrypt / bcryptjs**
@@ -44,11 +44,10 @@ Bu projede aşağıdaki gereksinimler eksiksiz şekilde sağlanmıştır:
 - **Rol tabanlı kullanıcı yönetimi (admin / editor)**
 - **Yazı (post) yönetimi: ekleme, güncelleme, silme, yayınlama**
 - **Kategori sistemi**
-- **Statik sayfa yönetimi (Hakkımızda, İletişim vb.)**
+- **Statik sayfa yönetimi**
 - **Yorum sistemi**
 - **Veritabanı otomatik loglama sistemi**
-- **3NF uyumlu, genişletilebilir veri modeli**
-- **View, Stored Procedure, Transaction ve ileri seviye SQL sorguları**
+- **View, Stored Procedure, Transaction ve SQL sorguları**
 
 ---
 
@@ -81,7 +80,7 @@ nodecore-cms-nodejs/
 1) Kurulum aşaması
 
 + `npm install`
-+ `.env oluştur: .env.example dosyasını kopyalayarak .env oluştur ve kendi MySQL bilgilerini yaz.`
++ `.env` oluştur: .env.example dosyasını kopyalayarak .env oluştur ve kendi MySQL bilgilerini yaz.
 
 2) Veritabanını kur:
 
@@ -94,7 +93,7 @@ nodecore-cms-nodejs/
 
 `node app.js`
 
-#### Uygulama: `http://localhost:3000`
+`Uygulama`: `http://localhost:3000`
 
 ## Notlar
 

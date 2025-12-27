@@ -1,4 +1,4 @@
-# NodeCore-CMS v1.1
+# Atlas-CMS v1.1
 
 ![Node.js](https://img.shields.io/badge/Node.js-Backend-success)
 ![MySQL](https://img.shields.io/badge/MySQL-Relational-blue)

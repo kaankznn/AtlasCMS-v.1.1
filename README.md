@@ -21,13 +21,13 @@ NodeCore-CMS, Node.js ve MySQL kullanılarak geliştirilmiş, ilişkisel veritab
 
 ## ✨ Özellikler
 
-- **Rol tabanlı kullanıcı yönetimi (admin / editor)**
-- **Yazı (post) yönetimi: ekleme, güncelleme, silme, yayınlama**
-- **Kategori sistemi**
-- **Statik sayfa yönetimi**
-- **Yorum sistemi**
-- **Veritabanı otomatik loglama sistemi**
-- **View, Stored Procedure, Transaction ve SQL sorguları**
+- Rol tabanlı kullanıcı yönetimi (admin / editor)
+- Yazı (post) yönetimi: ekleme, güncelleme, silme, yayınlama
+- Kategori sistemi
+- Statik sayfa yönetimi
+- Yorum sistemi
+- Veritabanı otomatik loglama sistemi
+- View, Stored Procedure, Transaction ve SQL sorguları
 
 ---
 
